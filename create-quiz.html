@@ -23,6 +23,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
+    <script src="scripts/quiz.js" charset="utf-8"></script>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -74,20 +75,29 @@
                 <div class="py-3">
                     <h4>Characters:</h4>
                     <!-- Current Answer Start -->
-                    <div class="row py-3">
-                        <div class="col-md-6">
+                    <div id="character-container" class="row py-3">
+                        <div class="col-md-6 py-2">
                             <input type="text" class="form-control" placeholder="Choice">
                         </div>
                     </div>
+
                     <!-- Current Answer End -->
 
                     <!-- New Answer Start -->
                     <div class="row py-3">
                         <div class="col-md text-left">
-                            <button class="btn btn-outline-secondary">
+                            <button class="btn btn-outline-secondary" onclick="addCharacterEntry()">
                                 Add new Choice
                             </button>
+
                         </div>
+                        <div class="col-md text-right">
+                            <button class="btn btn-outline-success" onclick="updateCharacterList()">
+                                Save
+                            </button>
+
+                        </div>
+
                     </div>
                     <!-- New Answer End -->
                 </div>
@@ -95,28 +105,30 @@
                 <!-- Input Characters End -->
 
                 <!-- Current Question # Start-->
-                <div class="py-4">
-                    <h4>Question #</h4>
+                <div id="questions-container" class="py-4">
+                    <h4>Question 1</h4>
                     <hr />
                     <input class="form-control form-control-lg" type="text" placeholder="Enter Question Text">
                     <!-- Current Answer Start -->
-                    <div class="row py-3">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Choice">
+                    <div id="choice-container-1">
+                        <div class="row py-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Choice">
+                            </div>
+                            <div class="col-md-6">
+                                <select id="inputCharacter" class="form-control">
+                                    <option selected value="" disabled>Choose...</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <select id="inputCharacter" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                            </select>
-                        </div>
+                        <hr />
                     </div>
                     <!-- Current Answer End -->
 
                     <!-- New Answer Start -->
                     <div class="row py-3">
                         <div class="col-md text-right">
-                            <button class="btn btn-outline-info">
+                            <button class="btn btn-outline-info" onclick="addChoiceEntry(1)">
                                 Add new Choice
                             </button>
                         </div>
@@ -129,7 +141,7 @@
 
                 <!-- New Question # Start-->
                 <div class="py-4 text-left">
-                    <button class="btn btn-lg btn-outline-secondary">
+                    <button class="btn btn-lg btn-outline-secondary" onclick="addQuestionEntry()">
                         Add Question #
                     </button>
                 </div>
@@ -168,5 +180,6 @@
         window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
     </script>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </html>
