@@ -79,3 +79,8 @@ const addChoiceEntry = (questionNum) => {
 	updateCharacterList();
 	$element.append($newChoice);
 };
+const submitQuiz = () => {
+	event.preventDefault();
+	console.log("All Done");
+	// window.location.href = `http://127.0.0.1:3000/index.html`;
+};
