@@ -23,6 +23,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
+    <script src="scripts/objects.js" charset="utf-8"></script>
     <script src="scripts/quiz.js" charset="utf-8"></script>
     <style>
         .bd-placeholder-img {
@@ -64,103 +65,102 @@
 
     <main role="main">
 
-        <form id="create-quiz-form" onsubmit="submitQuiz()">
-            <div class="album py-5 bg-light">
-                <div class="container">
-                    <!-- Title Input Start -->
-                    <input class="form-control form-control-lg" type="text" placeholder="Enter a Title">
-                    <!-- Title Input End -->
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <!-- Title Input Start -->
+                <input id="quiz-title" class="form-control form-control-lg" type="text" placeholder="Enter a Title">
+                <!-- Title Input End -->
 
-                    <!-- Input Characters Start -->
-                    <div class="py-3">
-                        <h4>Characters:</h4>
-                        <!-- Current Answer Start -->
-                        <div id="character-container" class="row py-3">
-                            <div class="col-md-6 py-2">
+                <!-- Input Characters Start -->
+                <div class="py-3">
+                    <h4>Characters:</h4>
+                    <!-- Current Answer Start -->
+                    <div id="character-container" class="row py-3">
+                        <div class="col-md-6 py-2">
+                            <input type="text" class="form-control" placeholder="Choice">
+                        </div>
+                    </div>
+
+                    <!-- Current Answer End -->
+
+                    <!-- New Answer Start -->
+                    <div class="row py-3">
+                        <div class="col-md text-left">
+                            <button class="btn btn-outline-secondary" onclick="addCharacterEntry()">
+                                + Add Character
+                            </button>
+
+                        </div>
+                        <div class="col-md text-right">
+                            <button class="btn btn-outline-success" onclick="updateCharacterList()">
+                                Save Characters
+                            </button>
+
+                        </div>
+
+                    </div>
+                    <!-- New Answer End -->
+                </div>
+
+                <!-- Input Characters End -->
+
+                <!-- Current Question # Start-->
+                <div id="questions-container" class="py-4">
+                    <h4>Question 1</h4>
+                    <hr />
+                    <input id="question-title-1" class="form-control form-control-lg" type="text"
+                        placeholder="Enter Question Text">
+                    <!-- Current Answer Start -->
+                    <div id="choice-container-1">
+                        <div class="row py-3">
+                            <div class="col-md-6">
                                 <input type="text" class="form-control" placeholder="Choice">
                             </div>
-                        </div>
-
-                        <!-- Current Answer End -->
-
-                        <!-- New Answer Start -->
-                        <div class="row py-3">
-                            <div class="col-md text-left">
-                                <button class="btn btn-outline-secondary" onclick="addCharacterEntry()">
-                                    Add new Choice
-                                </button>
-
+                            <div class="col-md-6">
+                                <select id="inputCharacter" class="form-control">
+                                    <option selected value="" disabled>Choose...</option>
+                                </select>
                             </div>
-                            <div class="col-md text-right">
-                                <button class="btn btn-outline-success" onclick="updateCharacterList()">
-                                    Save
-                                </button>
-
-                            </div>
-
                         </div>
-                        <!-- New Answer End -->
-                    </div>
-
-                    <!-- Input Characters End -->
-
-                    <!-- Current Question # Start-->
-                    <div id="questions-container" class="py-4">
-                        <h4>Question 1</h4>
                         <hr />
-                        <input class="form-control form-control-lg" type="text" placeholder="Enter Question Text">
-                        <!-- Current Answer Start -->
-                        <div id="choice-container-1">
-                            <div class="row py-3">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Choice">
-                                </div>
-                                <div class="col-md-6">
-                                    <select id="inputCharacter" class="form-control">
-                                        <option selected value="" disabled>Choose...</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <hr />
+                    </div>
+                    <!-- Current Answer End -->
+
+                    <!-- New Answer Start -->
+                    <div class="row py-3">
+                        <div class="col-md text-right">
+                            <button class="btn btn-outline-info" onclick="addChoiceEntry(1)">
+                                Add new Choice
+                            </button>
                         </div>
-                        <!-- Current Answer End -->
-
-                        <!-- New Answer Start -->
-                        <div class="row py-3">
-                            <div class="col-md text-right">
-                                <button class="btn btn-outline-info" onclick="addChoiceEntry(1)">
-                                    Add new Choice
-                                </button>
-                            </div>
-                        </div>
-                        <!-- New Answer End -->
-
-
                     </div>
-                    <!-- Current Question # End -->
-
-                    <!-- New Question # Start-->
-                    <div class="py-4 text-left">
-                        <button class="btn btn-lg btn-outline-secondary" onclick="addQuestionEntry()">
-                            Add Question #
-                        </button>
-                    </div>
-                    <!-- New Question # End -->
+                    <!-- New Answer End -->
 
 
-
-                    <hr />
-
-                    <!-- Submit Start -->
-                    <div class="py-4 text-center">
-                        <button class="btn btn-lg btn-success" type="submit">
-                            Save and Exit
-                        </button>
-                    </div>
-                    <!-- Submit End -->
                 </div>
+                <!-- Current Question # End -->
+
+                <!-- New Question # Start-->
+                <div class="py-4 text-left">
+                    <button class="btn btn-lg btn-outline-secondary" onclick="addQuestionEntry()">
+                        Add Question #
+                    </button>
+                </div>
+                <!-- New Question # End -->
+
+
+
+                <hr />
+
+                <!-- Submit Start -->
+                <div class="py-4 text-center">
+                    <button class="btn btn-lg btn-primary" onclick="submitQuiz()">
+                        Publish Quiz
+                    </button>
+                </div>
+                <!-- Submit End -->
             </div>
-        </form>
+        </div>
 
     </main>
 
