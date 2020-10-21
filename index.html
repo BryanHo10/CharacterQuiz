@@ -23,6 +23,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
   </script>
+  <script src="scripts/home.js" charset="utf-8"></script>
 
   <style>
     .bd-placeholder-img {
@@ -44,7 +45,7 @@
   <link href="./styles/album.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="populateDashboard();">
   <header>
     <div class="container pt-3">
       <div class="row">
@@ -61,37 +62,14 @@
 
     </div>
   </header>
-
   <main role="main">
 
 
     <div class="album py-5 bg-light">
 
       <!-- Card Start -->
-      <div class="container">
-        <div class="card mb-4 shadow-sm">
-          <div class="card-body">
-            <h2 class="card-title">Sample Title</h2>
-            <hr />
-            <div class="py-4"></div>
-            <div class=" d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-lg btn-outline-secondary">View</button>
-                <!-- <button type="button" class="btn btn-lg btn-outline-secondary">Edit</button> -->
-              </div>
-              <div class="row w-50 justify-content-end">
-                <div class="px-5 text-center">
-                  <h3>6</h3>
-                  Characters
-                </div>
-                <div class="px-5 text-center">
-                  <h3>6</h3>
-                  Questions
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="quiz-preview-container" class="container">
+
       </div>
       <!-- Card End -->
 
