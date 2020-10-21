@@ -118,7 +118,7 @@ const saveQuestions = () => {
 		(_, index) => {
 			return {
 				text: $(`[id="question-title-${index + 1}"]`).val(),
-				id: index + 1,
+				id: index,
 				answers: choiceEntries[index],
 			};
 		}
