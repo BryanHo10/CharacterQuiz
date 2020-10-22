@@ -86,7 +86,7 @@ const submitQuiz = () => {
 	event.preventDefault();
 	saveQuestions();
 	console.log("All Done");
-	// window.location.href = `http://127.0.0.1:3000/index.html`;
+	// window.location.href = `http://127.0.0.1:3000/home.html`;
 };
 const saveQuestions = () => {
 	const characterList = [...globalCharactersList];
