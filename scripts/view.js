@@ -4,28 +4,9 @@ const populateQuiz = () => {
 	//Add fetch to populate quiz
 	const QuestionPreviewContainer = $(`[id="quiz-preview-container"]`);
 	QuestionPreviewContainer.empty();
-	const mockQuestionObject = {
-		title: "Title",
-		characters: ["Character1", "Character2", "Character3"],
-		questions: [
-			{
-				text: "Question1",
-				id: 0,
-				answers: [
-					{ text: "Answer1", character: "Character1" },
-					{ text: "Answer2", character: "Character2" },
-				],
-			},
-			{
-				text: "Question2",
-				id: 1,
-				answers: [
-					{ text: "Answer1", character: "Character1" },
-					{ text: "Answer2", character: "Character2" },
-				],
-			},
-		],
-	};
+	const mockQuestionObject = getAllQuizzes()[
+		JSON.parse(dataStorage.getItem("view-quiz"))
+	];
 	QuestionPreviewContainer.append(
 		$(`<h3>${mockQuestionObject.title}</h3><hr/>`)
 	);
@@ -37,12 +18,14 @@ const populateQuiz = () => {
 		const choiceOptions = $(
 			`<div id="answers-${question.id}" class="row"></div>`
 		);
+		let index = 0;
 		for (let answer of question.answers) {
 			choiceOptions.append(`<div class="col-md-6">
-                <div><button id="question-${question.id}-${answer.character}" class="btn btn-outline-info my-2 w-100" onclick="saveChoice(${question.id},'${answer.character}')">
+                <div><button id="question-${question.id}-${answer.character}${index}" class="btn btn-outline-info my-2 w-100" onclick="saveChoice(${question.id},'${answer.character}',${index})">
                         <h4>${answer.text}</h4>
                     </button></div>
-            </div>`);
+			</div>`);
+			index++;
 		}
 		QuestionPreviewContainer.append(choiceOptions);
 		QuestionPreviewContainer.append(`<div class="my-5"></div>`);
@@ -51,11 +34,11 @@ const populateQuiz = () => {
             <h4>Finish Quiz</h4>
         </button></div>`);
 };
-const saveChoice = (questionID, characterChoice) => {
+const saveChoice = (questionID, characterChoice, answerID) => {
 	const $buttonsEl = $(`[id="answers-${questionID}"]`).find("button");
 	$buttonsEl.each(function () {
 		const id = $(this).attr("id");
-		if (id.includes(characterChoice)) {
+		if (id.includes(`${characterChoice}${answerID}`)) {
 			$(this).addClass("active");
 			characterTracker[questionID] = characterChoice;
 		} else {

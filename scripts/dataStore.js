@@ -1,15 +1,32 @@
 const remoteURL = "http://107.185.99.52/CharacterQuiz-API/";
 const myStorage = window.sessionStorage;
+const dataStorage = window.localStorage;
 
 const saveUserSession = (user) => {
 	myStorage.setItem("currentUser", JSON.stringify(user));
 };
-
-const saveQuiz = (id, value) => {
-	localStorage.setItem();
+const getUserSession = () => {
+	return JSON.parse(myStorage.getItem("currentUser"));
 };
-const getAllQuizzes = () => {};
-const removeQuiz = () => {};
+const saveQuiz = (value) => {
+	const quizzes = dataStorage.getItem("quizzes");
+	if (!quizzes) {
+		dataStorage.setItem("quizzes", JSON.stringify([value]));
+	} else {
+		dataStorage.setItem(
+			"quizzes",
+			JSON.stringify([...JSON.parse(quizzess), value])
+		);
+	}
+};
+const getAllQuizzes = () => {
+	const quizzes = dataStorage.getItem("quizzes");
+	if (!quizzes) {
+		return [];
+	} else {
+		return JSON.parse(quizzes);
+	}
+};
 
 // Mock Data
 const mockGetAllQuizzes = () => {

@@ -85,8 +85,7 @@ const addChoiceEntry = (questionNum) => {
 const submitQuiz = () => {
 	event.preventDefault();
 	saveQuestions();
-	console.log("All Done");
-	// window.location.href = `http://127.0.0.1:3000/home.html`;
+	window.location.href = `http://127.0.0.1:3000/home.html`;
 };
 const saveQuestions = () => {
 	const characterList = [...globalCharactersList];
@@ -126,5 +125,5 @@ const saveQuestions = () => {
 	currentQuiz.characters = characterList;
 	currentQuiz.title = titleEntry;
 	currentQuiz.questions = questionEntries;
-	console.log(currentQuiz);
+	saveQuiz(currentQuiz);
 };
