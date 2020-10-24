@@ -23,6 +23,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
+    <script src="scripts/dataStore.js" charset="utf-8"></script>
     <script src="scripts/login.js" charset="utf-8"></script>
     <style>
         .bd-placeholder-img {
@@ -96,6 +97,9 @@
                                         Sign up
                                     </button>
                                 </div>
+                                <div id="signup-error" class="text-danger">
+                                    <p></p>
+                                </div>
                             </div>
                         </div>
                         <!-- Sign Up Card End -->
@@ -122,7 +126,9 @@
                                         Login
                                     </button>
                                 </div>
-
+                                <div id="login-error" class="text-danger">
+                                    <p></p>
+                                </div>
                             </div>
                         </div>
                         <!-- Login Card End -->

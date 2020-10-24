@@ -1,4 +1,5 @@
 const $ = window.jQuery;
+
 const populateDashboard = () => {
 	//Add fetch to populate questionLength
 	const questionLength = 4;

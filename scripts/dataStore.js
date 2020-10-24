@@ -1,4 +1,9 @@
 const remoteURL = "http://107.185.99.52/CharacterQuiz-API/";
+const myStorage = window.sessionStorage;
+
+const saveUserSession = (user) => {
+	myStorage.setItem("currentUser", JSON.stringify(user));
+};
 
 const saveQuiz = (id, value) => {
 	localStorage.setItem();
