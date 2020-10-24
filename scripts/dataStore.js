@@ -15,7 +15,7 @@ const saveQuiz = (value) => {
 	} else {
 		dataStorage.setItem(
 			"quizzes",
-			JSON.stringify([...JSON.parse(quizzess), value])
+			JSON.stringify([...JSON.parse(quizzes), value])
 		);
 	}
 };
