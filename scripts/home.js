@@ -2,6 +2,8 @@ const $ = window.jQuery;
 const remoteServer = "http://107.185.99.52/CharacterQuiz-API/v1";
 
 const populateDashboard = async () => {
+	$(`[id="username"]`).empty();
+	$(`[id="username"]`).append(getUserSession().nick);
 	//Add fetch to populate questionLength
 
 	const QuestionPreviewContainer = $(`[id="quiz-preview-container"]`);

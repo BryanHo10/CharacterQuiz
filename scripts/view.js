@@ -1,6 +1,8 @@
 const $ = window.jQuery;
 const characterTracker = {};
 const populateQuiz = () => {
+	$(`[id="username"]`).empty();
+	$(`[id="username"]`).append(getUserSession().nick);
 	//Add fetch to populate quiz
 	const QuestionPreviewContainer = $(`[id="quiz-preview-container"]`);
 	QuestionPreviewContainer.empty();

@@ -1,5 +1,8 @@
 const $ = window.jQuery;
-
+const initialView = () => {
+	$(`[id="username"]`).empty();
+	$(`[id="username"]`).append(getUserSession().nick);
+};
 const addQuestionEntry = () => {
 	const $element = $('[id="questions-container"]');
 	currentQuestionNum += 1;

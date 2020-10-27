@@ -20,9 +20,16 @@ const loginUser = async () => {
 		});
 	} else {
 		response.json().then((data) => {
-			console.log(data);
 			saveUserSession({ id: data.id });
-			window.location.href = "/home.html";
+
+			fetch(`${remoteServer}/users?id=${getUserSession().id}`, {
+				method: "GET",
+			})
+				.then((data) => data.json())
+				.then((response) => {
+					saveUserSession({ id: response.id, nick: response.nick });
+					window.location.href = "/home.html";
+				});
 		});
 	}
 };
@@ -32,7 +39,7 @@ const signUpUser = async () => {
 	const user = $(`[id="signup-user"]`).val();
 	const password = $(`[id="signup-pass"]`).val();
 	const verify = $(`[id="signup-verify"]`).val();
-	const response = await fetch(`${remoteServer}/user`, {
+	const response = await fetch(`${remoteServer}/users`, {
 		method: "POST",
 		body: JSON.stringify({
 			email,
